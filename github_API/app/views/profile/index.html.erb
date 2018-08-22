@@ -1,0 +1,36 @@
+<h1>GitHub</h1>
+<div class="left_column">
+    <%= image_tag(@liz_info['avatar_url'], size: "250") %><br>
+
+    <div class="main"><%= @liz_info['name'] %><br></div>
+    <%= @liz_info['login'] %><br>
+    <div class="bio"><%= @liz_info['bio'] %><br></div>
+
+    <%= @liz_info['location'] %><br>
+</div>
+
+<div class="right_column">
+    <div>
+        <div class="na">Overview</div>
+        <div class="na">Repositories</div>
+        <div class="ba"><%= @liz_info['public_repos'] %></div>
+        <div class="na">Stars</div>
+        <div class="ba"><%= @liz_info['public_gists'] %></div>
+        <div class="na">Followers</div>
+        <div class="ba"><%= @liz_info['followers'] %></div>
+        <div class="na">Following</div>
+        <div class="ba"><%= @liz_info['following'] %></div>
+        <hr>
+    </div>
+
+    <div class="repos">
+        <% @repos.each do |repo| %>
+            <div class="title"><%= repo['name'] %><br></div>
+            <%= repo['description'] %><br>
+            <div class='lang'><%= repo['language'] %><br></div>
+            <div class='lang'>Updated <%= time_ago_in_words(repo['updated_at']) %> ago</div>
+            <div class='clear'></div>
+            <hr>
+        <% end %>
+    </div>
+</div>
